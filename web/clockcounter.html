@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<polymer-element name="clock-counter">
+  <template bind>
+    <style>
+      .card{
+        font-family: 'Prosto One', cursive;
+        position:absolute;      
+        color: #1485CC;
+        background: #fafafa;
+        width: 450px;
+        height: 240px;
+        box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+        border-radius: 3px 3px;
+        margin: 0 auto 20px;
+        padding: 15px;
+        text-align: center;
+        font-size: 26px;   
+      }
+      .numinp{
+        width:65px;
+      }
+      button{
+        background: #12b212;
+        color: #eeeeee;
+        padding: 15px;  
+        margin: 5px;
+        font-size: 24px;
+        font-family: 'Prosto One', cursive;
+        border-radius: 31px 31px;
+        box-shadow: 0 6px 7px rgba(0,0,0,0.4);
+        border:3px;    
+      }      
+      input{
+        background: #1212b2;
+        color: #eeeeee;
+        padding: 15px;  
+        margin: 5px;
+        font-size: 26px;
+        font-family: 'Prosto One', cursive;
+      }    
+      hr{
+        height: 12px;
+        border: 0;
+        box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+      }
+      .bigText{
+       font-size: 98px;
+       text-align: left;
+       color: #000000;
+      }
+      .medText{
+       font-size: 78px;
+       text-align: left;
+      }      
+      .cardTitle{
+        font-size: 38px;
+        color: #b21212;        
+      }
+    </style>
+    
+    <div class="card" id="setupCard" style="top:10px;">
+      <span class="cardTitle">Countdown Timer</span>
+      <hr/>
+      <input class="numinp" type="number" min="1" max="1440" id="durationTextBox" value="{{ Limit | asInteger }}" />
+       Minutes 
+      <button on-click="{{start}}">Start</button>
+      <br/>
+      <br/>
+      <hr/>
+      <span style=""><a style=" font-size: 18px;" href="">Visit The 'Diving Into Dart' Blog</a></span>
+    </div>
+    
+    <div class="card" id="statusCard" style="background-color:white;top:300px;z-index:100;text-align: left; margin-left;15px;">
+     <br/>
+     <br/>
+     <span id="countdown" class="bigText">{{nice_countdown}}</span>     
+     <br/>
+     <br/>
+      <button on-click="{{stop}}" id="stopButton" style="margin-left:315px;background: #b21212;">Stop!</button>
+    </div>
+
+    <div class="card" id="resultCard" style="background-color:white;top:300px;z-index:100;text-align: left; margin-left;15px;">
+     <br/>
+     <br/>
+     <span id="timeup" class="medText">Time Up!</span>
+     <br/>
+     <br/>
+      <button on-click="{{hideTimeUp}}" id="hideButton" style="margin-left:315px;background: #b21212;">Hide</button>
+    </div>
+
+        
+  </template>
+  <script type="application/dart" src="clockcounter.dart"></script>
+</polymer-element>
+
